@@ -1,6 +1,6 @@
 /*
- *  Copyright (C) 2015 Salah Alami. All rights reserved.
- *	Source name : function to collapse group of spaces to one space.
+ *	Copyright (C) 2015 Salah Alami. All rights reserved.
+ *	Source name : function to collapse group of spaces and tabs to one space.
  */
 
 #include <stdio.h>
@@ -17,12 +17,12 @@ char* CollapseSpaces(char* line)
 	int i, j = 0;
 	for(i = 0;i < l;)
 	{
-		if(line[i] != ' ')
+		if(line[i] != ' ' && line[i] != '\t')
 			clone[j] = line[i];
 		else
 		{
 			clone[j] = ' ';
-			while(line[i] == ' ')i++;
+			while(line[i] == ' ' || line[i] == '\t')i++;
 			i--;
 		}
 		i++; j++;
